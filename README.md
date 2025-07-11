@@ -1,0 +1,139 @@
+# URL Safety Analyzer
+
+A machine learning-based web application that analyzes URLs to detect malicious websites. The application uses multiple ML models to classify URLs into different categories: Benign, Malware, Defacement, and Phishing.
+
+## Features
+
+- **Multi-Model Analysis**: Uses 5 different machine learning models:
+  - Logistic Regression
+  - Random Forest
+  - Naive Bayes
+  - Support Vector Machine (SVM)
+  - Decision Tree
+
+- **Real-time Analysis**: Analyze any URL instantly with detailed predictions
+- **Comprehensive Analytics**: View model performance metrics and per-link analytics
+- **Interactive Dashboard**: Modern UI with charts and visualizations
+- **Model Comparison**: Compare predictions across all models for a given URL
+
+## Screenshots
+
+- Modern, responsive web interface
+- Interactive model selection
+- Real-time URL analysis
+- Detailed analytics dashboard with charts
+- Per-link model comparison
+
+## Installation
+
+### Prerequisites
+- Python 3.7 or higher
+- pip (Python package installer)
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/url-safety-analyzer.git
+   cd url-safety-analyzer
+   ```
+
+2. **Create a virtual environment**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the application**
+   ```bash
+   python app.py
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:5000`
+
+## Usage
+
+1. **Enter a URL**: Type any website URL in the input field
+2. **Select a Model**: Choose from the available ML models
+3. **Analyze**: Click "Analyze" to get the prediction
+4. **View Analytics**: Click "Show Report/Analytics" to see detailed metrics
+
+## Project Structure
+
+```
+URL Type Detector Version 2.0/
+├── app.py                 # Main Flask application
+├── model_trainer.py       # Model training script
+├── compute_metrics.py     # Metrics calculation script
+├── requirements.txt       # Python dependencies
+├── url_data.csv          # Dataset (not included in repo)
+├── models/               # Trained models directory
+│   ├── vectorizer.pkl
+│   ├── accuracies.pkl
+│   └── [model files].pkl
+├── static/               # Static assets
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   ├── ambient.mp3
+│   ├── favicon.ico
+│   └── logo.svg
+└── templates/            # HTML templates
+    └── index.html
+```
+
+## Technologies Used
+
+### Backend
+- **Flask**: Web framework
+- **scikit-learn**: Machine learning library
+- **pandas**: Data manipulation
+- **joblib**: Model serialization
+
+### Frontend
+- **HTML5/CSS3**: Structure and styling
+- **Tailwind CSS**: Utility-first CSS framework
+- **JavaScript**: Interactivity
+- **Chart.js**: Data visualization
+- **Lucide**: Icons
+- **tsParticles**: Background animations
+
+## Model Performance
+
+The application includes comprehensive analytics showing:
+- Accuracy, Precision, Recall, F1-score
+- RMSE (Root Mean Square Error)
+- Processing time for each model
+- Per-link prediction probabilities
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Dataset: [URL Dataset for Malicious URL Detection](https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset)
+- Icons: [Lucide](https://lucide.dev/)
+- Charts: [Chart.js](https://www.chartjs.org/)
+- CSS Framework: [Tailwind CSS](https://tailwindcss.com/)
+
+## Contact
+
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+
+Project Link: [https://github.com/yourusername/url-safety-analyzer](https://github.com/yourusername/url-safety-analyzer) 

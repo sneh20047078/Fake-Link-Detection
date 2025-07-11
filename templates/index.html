@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Safety Analyzer</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="animated-gradient text-white min-h-screen font-sans relative">
+
+<div id="tsparticles" class="absolute inset-0 -z-10"></div>
+
+<div class="bg-[#001f7f] w-full py-8 text-center shadow-lg">
+    <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" class="h-12 mx-auto mb-2 animate-pulse" />
+    <h1 class="text-4xl font-extrabold tracking-wide mb-1">URL Safety Analyzer</h1>
+    <p class="text-gray-300">Check if a website URL is safe using multiple machine learning models</p>
+</div>
+
+<div class="max-w-2xl mx-auto mt-10 px-6 pt-12">
+    <form method="POST" id="urlForm" class="bg-[#111827] p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-blue-500/40">
+        <div class="mb-4 relative">
+           <label for="urlInput" class="sr-only">Enter Website URL</label>
+           <input
+                id="urlInput"
+                type="text"
+                name="url"
+                placeholder="www.google.com"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-400 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+            />
+        </div>
+        <input type="hidden" name="model" id="selectedModelInput" value="{{ selected_model or accuracies.keys()|first }}">
+
+        <button
+            type="submit"
+            class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold text-white transition duration-300 shadow-md hover:shadow-lg hover:shadow-blue-500/40 backdrop-blur-sm"
+            >
+            <i data-lucide="shield-check" class="inline-block w-5 h-5 mr-1"></i> Analyze
+        </button>
+    </form>
+</div>
+
+<div class="max-w-5xl mx-auto mt-12 px-6">
+    <h2 class="text-2xl font-semibold mb-6 text-gray-200">Select Model</h2>
+    <div id="modelSelectionGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+        {% for model, acc in accuracies.items() %}
+        <div
+            class="model-card bg-gray-800/80 backdrop-blur-md p-5 rounded-xl border border-gray-700 transition-all duration-300 hover:scale-105 hover:border-blue-500 shadow-md cursor-pointer {% if (selected_model or accuracies.keys()|first) == model %}ring-2 ring-blue-400{% endif %}"
+            data-model="{{ model }}"
+        >
+            <h3 class="text-lg font-semibold mb-1">{{ model }}</h3>
+            <p class="text-sm text-gray-400">Accuracy: <span class="font-bold text-white ml-1">{{ "%.2f"|format(acc * 100) }}%</span></p>
+            {% if (selected_model or accuracies.keys()|first) == model %}
+                <span class="selected-badge inline-block mt-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">Selected</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="max-w-xl mx-auto mt-10 px-6">
+    {% if prediction %}
+      <div class="text-center text-gray-300 mb-2">
+        Analysed URL: <span class="font-mono text-white">{{ url_to_show }}</span>
+      </div>
+      <div id="predictionText" class="text-green-500 text-xl font-bold text-center"></div>
+      <div class="flex justify-center mt-4">
+        <button id="showReportBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Show Report/Analytics
+        </button>
+      </div>
+    {% endif %}
+</div>
+
+<!-- Report Modal -->
+<div id="reportModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white text-black rounded-lg p-6 max-w-3xl w-full relative overflow-y-auto" style="max-height: 90vh;">
+    <button id="closeReportBtn" class="absolute top-2 right-2 text-xl font-bold">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">Model Performance Report</h2>
+    <div class="my-6">
+      <canvas id="accuracyChart" width="400" height="200"></canvas>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full border text-sm">
+        <thead>
+          <tr>
+            <th class="border px-2 py-1">Model Name</th>
+            <th class="border px-2 py-1">RMSE</th>
+            <th class="border px-2 py-1">Precision</th>
+            <th class="border px-2 py-1">Accuracy</th>
+            <th class="border px-2 py-1">Recall</th>
+            <th class="border px-2 py-1">F1-score</th>
+            <th class="border px-2 py-1">Processing Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for model, metrics in model_metrics.items() %}
+          <tr>
+            <td class="border px-2 py-1">{{ model }}</td>
+            <td class="border px-2 py-1">{{ metrics.rmse }}</td>
+            <td class="border px-2 py-1">{{ metrics.precision }}</td>
+            <td class="border px-2 py-1">{{ metrics.accuracy }}</td>
+            <td class="border px-2 py-1">{{ metrics.recall }}</td>
+            <td class="border px-2 py-1">{{ metrics.f1 }}</td>
+            <td class="border px-2 py-1">{{ metrics.time }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if per_model_results %}
+    <h3 class="text-lg font-bold mt-6 mb-2">Per-Link Analytics</h3>
+    <table class="min-w-full border text-sm mb-4">
+      <thead>
+        <tr>
+          <th class="border px-2 py-1">Model</th>
+          <th class="border px-2 py-1">Prediction</th>
+          <th class="border px-2 py-1">Probability</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for model, result in per_model_results.items() %}
+        <tr>
+          <td class="border px-2 py-1">{{ model }}</td>
+          <td class="border px-2 py-1">{{ result.prediction }}</td>
+          <td class="border px-2 py-1">{{ result.probability }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="my-6">
+      <canvas id="perLinkChart" width="400" height="200"></canvas>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<audio id="bgMusic" autoplay loop hidden>
+    <source src="{{ url_for('static', filename='ambient.mp3') }}" type="audio/mpeg">
+</audio>
+
+<button id="soundToggle" aria-label="Toggle sound" class="fixed bottom-4 right-4 p-3 bg-gray-900 text-white rounded-full shadow-lg hover:bg-gray-700 transition-transform hover:scale-110 active:scale-95">
+    <i data-lucide="volume-2" class="w-6 h-6"></i>
+</button>
+
+<footer class="text-center text-sm text-gray-500 mt-16 mb-4">&copy; 2025 URL Safety Analyzer</footer>
+
+<script>
+  var modelNames = {{ model_metrics.keys()|list|tojson }};
+  var accuracies = {{ model_metrics.values()|map(attribute='accuracy')|list|tojson }};
+  var precisions = {{ model_metrics.values()|map(attribute='precision')|list|tojson }};
+  var recalls = {{ model_metrics.values()|map(attribute='recall')|list|tojson }};
+  var f1s = {{ model_metrics.values()|map(attribute='f1')|list|tojson }};
+</script>
+<script>
+  if (typeof prediction === 'undefined') {
+    var prediction = {{ prediction|tojson | safe }};
+  }
+</script>
+{% if per_model_results %}
+<script>
+  var perLinkModelNames = {{ per_model_results.keys()|list|tojson }};
+  var perLinkPredictions = {{ per_model_results.values()|map(attribute='prediction')|list|tojson }};
+  var perLinkProbabilities = {{ per_model_results.values()|map(attribute='probability')|list|tojson }};
+</script>
+{% endif %}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
