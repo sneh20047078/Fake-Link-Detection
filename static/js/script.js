@@ -69,7 +69,7 @@ soundToggle.addEventListener('click', () => {
     }
     // Tell Lucide to process the new icon placeholder inside the button
     lucide.createIcons();
-});
+}); 
 
 // --- Report Modal Logic ---
 const showReportBtn = document.getElementById('showReportBtn');
