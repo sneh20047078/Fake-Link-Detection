@@ -123,30 +123,29 @@ The application includes comprehensive analytics showing:
 
 
 
- ## Outcomes
+## Outcomes
 
-    -Developed a web-based fake link detection system using five classical ML models: Logistic Regression, Random Forest, Naive Bayes, SVM, and Decision Tree.
-    -Trained on a dataset of over 600,000 labeled URLs categorized as benign, phishing, malware, or defacement.
-    -Achieved high accuracy across models:
-       Random Forest: Highest accuracy at 95.8%, with strong precision and recall.
-       SVM and Decision Tree: Also performed above 95% accuracy.
-       Naive Bayes: Fastest inference time but slightly lower performance (~91.3% accuracy).
-    -Real-time model comparison and per-link analytics are integrated into a Flask-based interactive web interface.
+- Developed a web-based fake link detection system using five classical ML models: Logistic Regression, Random Forest, Naive Bayes, SVM, and Decision Tree.
+- Trained on a dataset of over 600,000 labeled URLs categorized as benign, phishing, malware, or defacement.
+- Achieved high accuracy across models:
+  - **Random Forest:** Highest accuracy at 95.8%, with strong precision and recall.
+  - **SVM and Decision Tree:** Also performed above 95% accuracy.
+  - **Naive Bayes:** Fastest inference time but slightly lower performance (~91.3% accuracy).
+- Real-time model comparison and per-link analytics are integrated into a Flask-based interactive dashboard.
 
- ## Limitations
+## Limitations
 
-    -Limited to Lexical Features
-    -Local Training and Execution
-    -Imbalanced Class Complexity
+- Limited to lexical features
+- Local training and execution
+- Imbalanced class complexity
 
-## Future Scope: 
+## Future Scope
 
-    -Integrate Deep Learning: Use RNNs, Transformers (like URLTran), or hybrid models for more context-aware URL detection.
-    -Dynamic Behavior Analysis: Extend detection by incorporating JavaScript behavior, DNS lookups, or webpage snapshots.
-    -Active Learning: Implement continual learning from newly reported malicious links to improve model robustness.
-    -Scalability Enhancements: Deploy on cloud platforms (e.g., AWS, Azure) with API support for broader adoption.
-    -Enhanced Security Layers: Add blacklist/whitelist filters, IP reputation checks, and geolocation-based risk indicators.
-
+- Integrate Deep Learning: Use RNNs, Transformers (like URLTran), or hybrid models for more context-aware detection.
+- Dynamic Behavior Analysis: Extend detection by incorporating JavaScript behavior, DNS lookups, etc.
+- Active Learning: Implement continual learning from newly reported malicious links to improve model robustness.
+- Scalability Enhancements: Deploy on cloud platforms (e.g., AWS, Azure) with API support for broader access.
+- Enhanced Security Layers: Add blacklist/whitelist filters, IP reputation checks, and geolocation-based analysis.
 
 ## Contributors
 
