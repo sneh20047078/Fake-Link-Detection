@@ -16,7 +16,7 @@ A machine learning-based web application that analyzes URLs to detect malicious 
 - **Interactive Dashboard**: Modern UI with charts and visualizations
 - **Model Comparison**: Compare predictions across all models for a given URL
 
-## Screenshots
+
 
 - Modern, responsive web interface
 - Interactive model selection
@@ -86,8 +86,8 @@ URL Type Detector Version 2.0/
 ├── model_trainer.py       # Model training script
 ├── compute_metrics.py     # Metrics calculation script
 ├── requirements.txt       # Python dependencies
-├── url_data.csv          # Dataset (download separately)
-├── models/               # Trained models directory (download separately)
+├── url_data.csv          # Dataset 
+├── models/               # Trained models directory 
 │   ├── vectorizer.pkl
 │   ├── accuracies.pkl
 │   └── [model files].pkl
@@ -126,14 +126,6 @@ The application includes comprehensive analytics showing:
 - RMSE (Root Mean Square Error)
 - Processing time for each model
 - Per-link prediction probabilities
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## License
 
