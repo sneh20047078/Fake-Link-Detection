@@ -146,8 +146,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Charts: [Chart.js](https://www.chartjs.org/)
 - CSS Framework: [Tailwind CSS](https://tailwindcss.com/)
 
+## Project Report and Demo
 
-
+- [Project Report (PDF)](Project_Report.pdf)
+- [Working Demo Video (MP4)](Working_Demo.mp4)
 
 
 Project Link: [https://github.com/sneh20047078/Fake-Link-Detection](https://github.com/sneh20047078/Fake-Link-Detection) 
