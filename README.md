@@ -1,4 +1,4 @@
-# URL Safety Analyzer
+# Fake Linnk Detection
 
 A machine learning-based web application that analyzes URLs to detect malicious websites. The application uses multiple ML models to classify URLs into different categories: Benign, Malware, Defacement, and Phishing.
 
@@ -34,8 +34,8 @@ A machine learning-based web application that analyzes URLs to detect malicious 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/url-safety-analyzer.git
-   cd url-safety-analyzer
+   git clone https://github.com/sneh20047078/Fake-Link-Detection.git
+   cd Fake-Link-Detection
    ```
 
 2. **Create a virtual environment**
@@ -52,7 +52,7 @@ A machine learning-based web application that analyzes URLs to detect malicious 
 4. **Download the dataset and train models**
    
    **Option A: Download pre-trained models**
-   - Download the trained models from [releases](https://github.com/yourusername/url-safety-analyzer/releases)
+   - Download the trained models from [releases](https://github.com/sneh20047078/Fake-Link-Detection/releases)
    - Extract to the `models/` directory
    
    **Option B: Train your own models**
@@ -146,8 +146,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Charts: [Chart.js](https://www.chartjs.org/)
 - CSS Framework: [Tailwind CSS](https://tailwindcss.com/)
 
-## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
 
-Project Link: [https://github.com/yourusername/url-safety-analyzer](https://github.com/yourusername/url-safety-analyzer) 
+
+
+Project Link: [https://github.com/sneh20047078/Fake-Link-Detection](https://github.com/sneh20047078/Fake-Link-Detection) 
