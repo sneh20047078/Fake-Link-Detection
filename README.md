@@ -147,6 +147,19 @@ The application includes comprehensive analytics showing:
     -Scalability Enhancements: Deploy on cloud platforms (e.g., AWS, Azure) with API support for broader adoption.
     -Enhanced Security Layers: Add blacklist/whitelist filters, IP reputation checks, and geolocation-based risk indicators.
 
+
+## Contributors
+
+   -Nakul J S
+   -Keerthana P A 
+   -Sneha Suresh
+
+Saintgits College of Engineering,
+Kerala Intel Unnati AI & ML Program 
+Mentor:Ms.Akshara Sasidharan
+
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
