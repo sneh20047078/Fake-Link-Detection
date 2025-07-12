@@ -78,6 +78,11 @@ A machine learning-based web application that analyzes URLs to detect malicious 
 3. **Analyze**: Click "Analyze" to get the prediction
 4. **View Analytics**: Click "Show Report/Analytics" to see detailed metrics
 
+## Project Report and Demo
+
+- [Project Report (PDF)](Project_Report.pdf)
+- [Working Demo Video (MP4)](Working_Demo.mp4)
+
 ## Project Structure
 
 ```
