@@ -63,4 +63,8 @@ instance/
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+
+# Large files (excluded from GitHub)
+models/*.pkl
+url_data.csv 

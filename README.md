@@ -49,12 +49,26 @@ A machine learning-based web application that analyzes URLs to detect malicious 
    pip install -r requirements.txt
    ```
 
-4. **Run the application**
+4. **Download the dataset and train models**
+   
+   **Option A: Download pre-trained models**
+   - Download the trained models from [releases](https://github.com/yourusername/url-safety-analyzer/releases)
+   - Extract to the `models/` directory
+   
+   **Option B: Train your own models**
+   - Download the dataset: [URL Dataset for Malicious URL Detection](https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset)
+   - Place `url_data.csv` in the project root
+   - Run the training script:
+     ```bash
+     python model_trainer.py
+     ```
+
+5. **Run the application**
    ```bash
    python app.py
    ```
 
-5. **Open your browser**
+6. **Open your browser**
    Navigate to `http://localhost:5000`
 
 ## Usage
@@ -72,8 +86,8 @@ URL Type Detector Version 2.0/
 ├── model_trainer.py       # Model training script
 ├── compute_metrics.py     # Metrics calculation script
 ├── requirements.txt       # Python dependencies
-├── url_data.csv          # Dataset (not included in repo)
-├── models/               # Trained models directory
+├── url_data.csv          # Dataset (download separately)
+├── models/               # Trained models directory (download separately)
 │   ├── vectorizer.pkl
 │   ├── accuracies.pkl
 │   └── [model files].pkl
