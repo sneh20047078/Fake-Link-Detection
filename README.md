@@ -150,13 +150,13 @@ The application includes comprehensive analytics showing:
 
 ## Contributors
 
-   -Nakul J S
-   -Keerthana P A 
-   -Sneha Suresh
+Nakul J S  
+Keerthana P A  
+Sneha Suresh
 
-Saintgits College of Engineering,
-Kerala Intel Unnati AI & ML Program 
-Mentor:Ms.Akshara Sasidharan
+Saintgits College of Engineering,  
+Kerala Intel Unnati AI & ML Program  
+Mentor: Ms. Akshara Sasidharan
 
 
 
