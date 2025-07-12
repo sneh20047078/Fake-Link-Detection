@@ -1,4 +1,4 @@
-# Fake Linnk Detection
+# Fake Link Detection
 
 A machine learning-based web application that analyzes URLs to detect malicious websites. The application uses multiple ML models to classify URLs into different categories: Benign, Malware, Defacement, and Phishing.
 
