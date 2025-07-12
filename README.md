@@ -52,7 +52,7 @@ A machine learning-based web application that analyzes URLs to detect malicious 
 4. **Download the dataset and train models**
    
    **Option A: Download pre-trained models**
-   - Download the trained models from [releases](https://github.com/sneh20047078/Fake-Link-Detection/releases)
+   - Download the trained models from [releases](https://github.com/sneh20047078/Fake-Link-Detection/releases/tag/v1.0)
    - Extract to the `models/` directory
    
    **Option B: Train your own models**
